@@ -886,11 +886,7 @@ class WidgetViewTableRme extends CControllerDashboardWidgetView {
 
 					foreach ($hostids as $hostid) {
 						$itemid = $itemids[$hostid] ?? null;
-						if ($itemid === null && ($layout == WidgetForm::LAYOUT_COLUMN_PER || $layout == WidgetForm::LAYOUT_THREE_COL)) {
-							continue;
-						}
-						
-						$value = $db_values[$itemid] ?? null;
+						$value = $itemid !== null ? ($db_values[$itemid] ?? null) : null;
 						if ($value === null && ($layout == WidgetForm::LAYOUT_COLUMN_PER || $layout == WidgetForm::LAYOUT_THREE_COL)) {
 							continue;
 						}
